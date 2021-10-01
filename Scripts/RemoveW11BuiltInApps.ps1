@@ -236,6 +236,8 @@ Get-AppxPackage -allusers *Facebook.InstagramBeta* | Remove-AppxPackage
 Get-AppxPackage -allusers *SpotifyAB.SpotifyMusic* | Remove-AppxPackage                             
 Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage
 
+#Get-AppxPackage | Out-GridView -Passthru | Remove-Appxpackage
+
 Get-AppxPackage | ForEach-Object {if (!($_.IsFramework -or $_.PublisherId -eq "cw5n1h2txyewy")) {$_}} | Select-Object PackageFullName
 Get-AppxPackage | ForEach-Object {if (!($_.IsFramework -or $_.PublisherId -eq "8wekyb3d8bbwe")) {$_}} | Select-Object PackageFullName
 Get-AppxPackage | ForEach-Object {if (!($_.IsFramework -or $_.PublisherId -eq "8j3eq9eme6ctt")) {$_}} | Select-Object PackageFullName
