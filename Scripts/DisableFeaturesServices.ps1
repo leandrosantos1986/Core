@@ -22,6 +22,6 @@ Set-Service -Name "VSS" -StartupType Disabled
 Stop-Service -Force -Name "VSS"
 
 #Desativar Microsoft Office Click to Run:
-Write-Progress -Activity 'Disabling Microsoft Office Click to Run...' -PercentComplete (100/10 * 3)
-Set-Service -Name "ClickToRunSvc" -StartupType Disabled
-Stop-Service -Force -Name "ClickToRunSvc"
+#Write-Progress -Activity 'Disabling Microsoft Office Click to Run...' -PercentComplete (100/10 * 3)
+#Set-Service -Name "ClickToRunSvc" -StartupType Disabled
+#Stop-Service -Force -Name "ClickToRunSvc"
