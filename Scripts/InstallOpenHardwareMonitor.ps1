@@ -1,7 +1,7 @@
 ﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
 Write-Progress -Activity 'Getting OpenHardwareMonitor' -PercentComplete (100/10 * 1)
 New-Item -Type directory -path "C:\Temp\Core\Tools\openhardwaremonitor\" -Force
-wget 'https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.6.zip' -OutFile 'C:\Temp\Core\Tools\openhardwaremonitor\openhardwaremonitor-v0.9.6.zip'
+Invoke-WebRequest 'https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.6.zip' -OutFile 'C:\Temp\Core\Tools\openhardwaremonitor\openhardwaremonitor-v0.9.6.zip'
 Expand-Archive -LiteralPath 'C:\Temp\Core\Tools\openhardwaremonitor\openhardwaremonitor-v0.9.6.zip' -DestinationPath C:\Temp\Core\Tools\openhardwaremonitor\
 XCOPY /S /E "C:\Temp\Core\Tools\openhardwaremonitor\OpenHardwareMonitor\*.*" /Y "C:\Program Files\OpenHardwareMonitor\"
 Write-Progress -Activity 'Importing Firewall Rules...' -PercentComplete (100/10 * 1)
