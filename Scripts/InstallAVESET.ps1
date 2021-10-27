@@ -6,5 +6,6 @@ Invoke-WebRequest -Uri "https://download.eset.com/com/eset/apps/business/ees/win
 Start-Sleep 3
 
 #Invoke-WebRequest -Uri "https://s3.amazonaws.com/servicedesk.estabilis.com/bei/epi_win_live_installer.exe" -OutFile "C:\Temp\Core\Tools\AV\ESET\epi_win_live_installer.exe"
+New-Item -Type Directory -Path "C:\Temp\Core\Tools\AV\ESET\" -Force
 Invoke-WebRequest -Uri "https://liveinstaller.eset.systems/odc/1fa465d2-54b0-4c4f-96dd-da291647adef/epi_win_live_installer.exe" -OutFile "C:\Temp\Core\Tools\AV\ESET\epi_win_live_installer.exe"
 & "C:\Temp\Core\Tools\AV\ESET\epi_win_live_installer.exe" /s /q
