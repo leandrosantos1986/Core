@@ -53,13 +53,15 @@ Write-Progress -Activity 'Installing Microsoft 365' -PercentComplete (100/10 * 8
 powershell.exe -File C:\Temp\Core\Scripts\InstallM365.ps1
 
 Write-Progress -Activity 'Installing Chocolatey' -PercentComplete (100/10 * 9)
-#powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
+powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
+
+refreshenv
 
 Write-Progress -Activity 'Installing Forticlient VPN' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
 
 Write-Progress -Activity 'Restarting PowerShell' -PercentComplete (100/10 * 9)
-powershell.exe -File C:\Temp\Core\Scripts\RestartPowerShell.ps1
+#powershell.exe -File C:\Temp\Core\Scripts\RestartPowerShell.ps1
 
 Write-Progress -Activity 'Installing Chocolatey Apps Core' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolateyApps.ps1
