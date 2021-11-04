@@ -55,8 +55,6 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallM365.ps1
 Write-Progress -Activity 'Installing Chocolatey' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
 
-refreshenv
-
 Write-Progress -Activity 'Installing Forticlient VPN' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
 
