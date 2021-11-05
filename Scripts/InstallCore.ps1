@@ -64,6 +64,8 @@ Write-Progress -Activity 'Restarting PowerShell' -PercentComplete (100/10 * 9)
 Write-Progress -Activity 'Installing Chocolatey Apps Core' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolateyApps.ps1
 
+refreshenv
+
 Write-Progress -Activity 'Installing SupportAssistDELL' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\InstallSupportAssistDell.ps1
 
