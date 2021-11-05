@@ -104,7 +104,6 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Twitte
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*VP9VideoExtensions*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WebMediaExtensions*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WebpImageExtension*"} | remove-appxprovisionedpackage -online
-Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WikimediaFoundation.Wikipdiaportugus*"} | remove-appxprovisionedpackage -online
 #Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Windows.NarratorQuickStart*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WindowsPhone*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WindowsScan*"} | remove-appxprovisionedpackage -online
@@ -112,11 +111,19 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Xbox*"
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*XboxOneSmartGlass*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*YourPhone*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*9E2F88E3.TWITTER*"} | remove-appxprovisionedpackage -online
-Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*2FE3CB00.PICSART-PHOTOSTUDIO*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobePhotoshopExpress*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Facebook.InstagramBeta*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*SpotifyAB.SpotifyMusic*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Microsoft.GamingApp*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Microsoft.PowerAutomateDesktop*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WhatsAppDesktop*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Clipchamp.Clipchamp*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*NAVER.LINEwin*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*WikimediaFoundation.Wikipedia*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobeLightroom*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*CorelCorporation.PaintShopPro*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*MicrosoftTeams*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*PICSART-PHOTOSTUDIO*"} | remove-appxprovisionedpackage -online
 
 #For present users:
 #Get-AppxPackage -allusers *AppInstaller* | Remove-AppxPackage
@@ -235,6 +242,15 @@ Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Rem
 Get-AppxPackage -allusers *Facebook.InstagramBeta* | Remove-AppxPackage                           
 Get-AppxPackage -allusers *SpotifyAB.SpotifyMusic* | Remove-AppxPackage                             
 Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage
+Get-AppxPackage -allusers *Microsoft.PowerAutomateDesktop* | Remove-AppxPackage
+Get-AppxPackage -allusers *WhatsAppDesktop* | Remove-AppxPackage
+Get-AppxPackage -allusers *Clipchamp.Clipchamp* | Remove-AppxPackage
+Get-AppxPackage -allusers *NAVER.LINEwin* | Remove-AppxPackage
+Get-AppxPackage -allusers *WikimediaFoundation.Wikipedia* | Remove-AppxPackage
+Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobeLightroom* | Remove-AppxPackage
+Get-AppxPackage -allusers *CorelCorporation.PaintShopPro* | Remove-AppxPackage
+Get-AppxPackage -allusers *MicrosoftTeams* | Remove-AppxPackage
+Get-AppxPackage -allusers *PICSART-PHOTOSTUDIO* | Remove-AppxPackage
 
 #Get-AppxPackage | Out-GridView -Passthru | Remove-Appxpackage
 
