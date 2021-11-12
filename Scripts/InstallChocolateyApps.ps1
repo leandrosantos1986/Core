@@ -1,9 +1,9 @@
 ﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-choco install 7zip -y
-choco install adobereader -y
-choco install googlechrome -y
-choco install microsoft-teams -y
-choco install notepadplusplus -y
-choco install speedtest -y
-choco install wget -y
-choco install zoom -y
+choco install 7zip -y --force
+choco install adobereader -y --force
+choco install googlechrome -y --force
+choco install microsoft-teams -y --force
+choco install notepadplusplus -y --force
+choco install speedtest -y --force
+choco install wget -y --force
+choco install zoom -y --force
