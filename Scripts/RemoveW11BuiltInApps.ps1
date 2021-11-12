@@ -124,6 +124,8 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeS
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*CorelCorporation.PaintShopPro*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*MicrosoftTeams*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*PICSART-PHOTOSTUDIO*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AmazonVideo.PrimeVideo*"} | remove-appxprovisionedpackage -online
+
 
 #For present users:
 #Get-AppxPackage -allusers *AppInstaller* | Remove-AppxPackage
@@ -251,6 +253,7 @@ Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobeLightroom* | Remove-App
 Get-AppxPackage -allusers *CorelCorporation.PaintShopPro* | Remove-AppxPackage
 Get-AppxPackage -allusers *MicrosoftTeams* | Remove-AppxPackage
 Get-AppxPackage -allusers *PICSART-PHOTOSTUDIO* | Remove-AppxPackage
+Get-AppxPackage -allusers *AmazonVideo.PrimeVideo* | Remove-AppxPackage
 
 #Get-AppxPackage | Out-GridView -Passthru | Remove-Appxpackage
 
