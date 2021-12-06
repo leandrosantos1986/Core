@@ -1,5 +1,4 @@
-﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-Write-Progress -Activity 'Enabling RDP...' -PercentComplete 0
+﻿Set-ExecutionPolicy Unrestricted -ForceWrite-Progress -Activity 'Enabling RDP...' -PercentComplete 0
 #Habilitando RDP:
 
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0

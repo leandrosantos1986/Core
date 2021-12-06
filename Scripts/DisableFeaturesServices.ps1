@@ -1,5 +1,4 @@
-﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-#Write-Progress -Activity 'Disabling features of Services...' -PercentComplete 0
+﻿Set-ExecutionPolicy Unrestricted -Force#Write-Progress -Activity 'Disabling features of Services...' -PercentComplete 0
 #Desativar SysMain:
 Write-Progress -Activity 'Disabling SysMain...' -PercentComplete (100/10 * 1)
 Set-Service -Name "SysMain" -StartupType Disabled

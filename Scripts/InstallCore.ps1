@@ -1,6 +1,5 @@
 ﻿Write-Progress -Activity 'Enabling Permissions to execute PowerShell Scripts' -PercentComplete (100/10 * 1)
-powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-
+Set-ExecutionPolicy Unrestricted -Force
 Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors.txt" -IncludeInvocationHeader
 
 try 

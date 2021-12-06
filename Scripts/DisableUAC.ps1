@@ -1,5 +1,4 @@
-﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-Write-Progress -Activity 'Disabling UAC...' -PercentComplete 0
+﻿Set-ExecutionPolicy Unrestricted -ForceWrite-Progress -Activity 'Disabling UAC...' -PercentComplete 0
   <#
         .SYNOPSIS
             Disable UAC though powershell

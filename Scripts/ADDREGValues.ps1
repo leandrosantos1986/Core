@@ -1,5 +1,4 @@
-﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-Write-Progress -Activity 'ADD REG Values' -PercentComplete (100/10 * 1)
+﻿Set-ExecutionPolicy Unrestricted -ForceWrite-Progress -Activity 'ADD REG Values' -PercentComplete (100/10 * 1)
 
 #Enable Dark Mode Theme
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 0
