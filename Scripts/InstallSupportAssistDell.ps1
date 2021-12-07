@@ -1,4 +1,5 @@
-﻿Set-ExecutionPolicy Unrestricted -ForceWrite-Progress -Activity 'Installing Dell SupportAssist' -PercentComplete (100/10 * 9)
+﻿Set-ExecutionPolicy Unrestricted -Force
+Write-Progress -Activity 'Installing Dell SupportAssist' -PercentComplete (100/10 * 9)
 New-Item -Type directory -path "C:\Temp\Core\Drivers\Dell\" -Force
 Invoke-WebRequest 'https://dl.dell.com/serviceability/eSupport/SupportAssistLauncher.exe' -OutFile 'C:\Temp\Core\Drivers\Dell\SupportAssistLauncher.exe'
 & 'C:\Temp\Core\Drivers\Dell\SupportAssistLauncher.exe' 

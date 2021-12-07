@@ -1,3 +1,4 @@
 ﻿@ECHO OFF 
-Set-ExecutionPolicy Unrestricted -Forcepowershell.exe %~dp0%InstallCore.ps1
+Set-ExecutionPolicy Unrestricted -Force
+powershell.exe %~dp0%InstallCore.ps1
 PAUSE

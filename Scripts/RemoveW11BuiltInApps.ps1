@@ -1,4 +1,5 @@
 ﻿Set-ExecutionPolicy Unrestricted -Force
+
 #For new users:
 #Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AppInstaller*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*828B5831.HiddenCityMysteryofShadows*"} | remove-appxprovisionedpackage -online

@@ -1,4 +1,5 @@
-﻿Set-ExecutionPolicy Unrestricted -ForceWrite-Progress -Activity 'Enabling RDP...' -PercentComplete 0
+﻿Set-ExecutionPolicy Unrestricted -Force
+Write-Progress -Activity 'Enabling RDP...' -PercentComplete 0
 #Habilitando RDP:
 
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0

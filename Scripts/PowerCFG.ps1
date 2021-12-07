@@ -1,4 +1,5 @@
-﻿Set-ExecutionPolicy Unrestricted -Force#powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+﻿Set-ExecutionPolicy Unrestricted -Force
+#powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 POWERCFG -restoredefaultschemes
 POWERCFG -IMPORT C:\Temp\Core\Scripts\schemeUP.pow 5f740709-a5d2-47a5-92f3-a2f5066a4474
