@@ -1,5 +1,24 @@
-﻿Write-Progress -Activity 'Enabling Permissions to execute PowerShell Scripts' -PercentComplete (100/10 * 1)
-Set-ExecutionPolicy Unrestricted -Force
+﻿powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
+param([switch]$Elevated)
+function Check-Admin {
+$currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
+$currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+}
+if ((Check-Admin) -eq $false)  {
+if ($elevated)
+{
+# could not elevate, quit
+}
+
+else {
+
+Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
+}
+exit
+}
+
+#Write-Progress -Activity 'Enabling Permissions to execute PowerShell Scripts' -PercentComplete (100/10 * 1)
+#Set-ExecutionPolicy Unrestricted -Force
 
 Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors.txt" -IncludeInvocationHeader
 
