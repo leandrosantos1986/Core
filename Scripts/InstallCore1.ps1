@@ -1,4 +1,4 @@
-﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
+﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors.txt" -IncludeInvocationHeader
 powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
 param([switch]$Elevated)
 function CheckAdmin {
@@ -8,7 +8,9 @@ $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 if ((CheckAdmin) -eq $false)  {
 if ($elevated)
 {
+
 # could not elevate, quit
+
 }
 
 else {
@@ -87,5 +89,7 @@ catch
   #perform action or write specific error
   continue;
 }
+Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
+powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
 
 Stop-Transcript
