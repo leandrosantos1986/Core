@@ -1,4 +1,4 @@
-﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors.txt" -IncludeInvocationHeader
+﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
 powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
 param([switch]$Elevated)
 function CheckAdmin {
@@ -78,18 +78,20 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
 Write-Progress -Activity 'Installing Forticlient VPN' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
 
-Write-Progress -Activity 'Installing Chocolatey Apps Core' -PercentComplete (100/10 * 9)
-powershell.exe -File C:\Temp\Core\Scripts\InstallChocolateyApps.ps1
-
 refreshenv
 }
+
+
 
 catch
 {
   #perform action or write specific error
   continue;
 }
-Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
-powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
+
 
 Stop-Transcript
+Get-Content "C:\Temp\Core\InstallCoreErrors1.txt" | Out-GridView -PassThru -Title "LOG"
+
+Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
+powershell.exe %~dp0%InstallCore2.ps1

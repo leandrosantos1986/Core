@@ -4,6 +4,7 @@ try
 {
 #your script
 
+Write-Progress -Activity 'Installing ChocolateyApps' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolateyApps.ps1
 
 Write-Progress -Activity 'Installing SupportAssistDELL' -PercentComplete (100/10 * 10)
@@ -18,7 +19,6 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallOpenHardwareMonitor.ps1
 Write-Progress -Activity 'Installing TeamViewer' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\InstallTeamViewer.ps1
 & "C:\Program Files\7-Zip\7zFM.exe"
-Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
 
 Stop-Process -ProcessName explorer
 explorer shell:AppsFolder
@@ -47,4 +47,5 @@ catch
 }
 
 Stop-Transcript
+
 Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
