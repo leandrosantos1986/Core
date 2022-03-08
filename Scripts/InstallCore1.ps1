@@ -71,6 +71,7 @@ powershell.exe -File C:\Temp\Core\Scripts\EnableRDP.ps1
 
 Write-Progress -Activity 'Installing Microsoft 365' -PercentComplete (100/10 * 8)
 powershell.exe -File C:\Temp\Core\Scripts\InstallM365.ps1
+appwiz.cpl
 
 Write-Progress -Activity 'Installing Chocolatey' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
