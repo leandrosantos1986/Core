@@ -8,7 +8,7 @@ Write-Progress -Activity 'Installing ChocolateyApps' -PercentComplete (100/10 * 
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolateyApps.ps1
 
 Write-Progress -Activity 'Installing SupportAssistDELL' -PercentComplete (100/10 * 10)
-powershell.exe -File C:\Temp\Core\Scripts\InstallSupportAssistDell.ps1
+#powershell.exe -File C:\Temp\Core\Scripts\InstallSupportAssistDell.ps1
 
 Write-Progress -Activity 'Installing SupportAssistINTEL' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\InstallSupportAssistIntel.ps1
@@ -80,5 +80,6 @@ function Analyze( $p, $f) {
   
   $s | Sort-Object -Property Name |Export-Csv C:\Temp\InstalledPrograms_$(Get-Content env:computername).csv
 
+Stop-Transcript
 
 Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
