@@ -48,4 +48,37 @@ catch
 
 Stop-Transcript
 
+function Analyze( $p, $f) {
+
+  Get-ItemProperty $p |ForEach-Object {
+  
+  if (($_.DisplayName) -or ($_.version)) {
+  
+  [PSCustomObject]@{
+  
+  From = $f;
+  
+  Name = $_.DisplayName;
+  
+  Version = $_.DisplayVersion;
+  
+  Install = $_.InstallDate
+  
+  }
+  
+  }
+  
+  }
+  
+  }
+  
+  $s = @()
+  
+  $s += Analyze 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' 64
+  
+  $s += Analyze 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' 32
+  
+  $s | Sort-Object -Property Name |Export-Csv C:\Temp\InstalledPrograms_$(Get-Content env:computername).csv
+
+
 Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"

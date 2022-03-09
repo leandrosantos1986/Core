@@ -1,5 +1,11 @@
 ﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
 powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
+
+Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft Update Health Tools"} | foreach-object -process {$_.Uninstall()}
+
+#Remove OneDrive
+Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft OneDrive"} | foreach-object -process {$_.Uninstall()}
+
 param([switch]$Elevated)
 function CheckAdmin {
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
@@ -90,9 +96,8 @@ catch
   continue;
 }
 
+Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
+powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
 
 Stop-Transcript
 Get-Content "C:\Temp\Core\InstallCoreErrors1.txt" | Out-GridView -PassThru -Title "LOG"
-
-Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
-powershell.exe %~dp0%InstallCore2.ps1
