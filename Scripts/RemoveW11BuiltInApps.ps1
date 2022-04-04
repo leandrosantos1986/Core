@@ -14,8 +14,7 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*A278AB
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*ActiproSoftwareLLC*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobeLightroom*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobePhotoshopExpress*"} | remove-appxprovisionedpackage -online
-Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobePhotoshopExpress*"} | remove-appxprovisionedpackage -online
-Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeSystemsIncorporated.AdobePhotoshopExpress*"} | remove-appxprovisionedpackage -online
+Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AdobeCreativeCloudExpress*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AmazonVideo.PrimeVideo*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AppUp.IntelGraphicsControlPanel*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*AppUp.IntelGraphicsExperience*"} | remove-appxprovisionedpackage -online
@@ -128,7 +127,7 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Window
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Xbox*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*XboxOneSmartGlass*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*YourPhone*"} | remove-appxprovisionedpackage -online
-
+AdobeCreativeCloudExpress
 #For present users:
 #Get-AppxPackage -allusers *PACKAGENAMEHERE* | Remove-AppxPackage
 
@@ -145,8 +144,7 @@ Get-AppxPackage -allusers *A278AB0D.MarchofEmpires* | Remove-AppxPackage
 Get-AppxPackage -allusers *ActiproSoftwareLLC* | Remove-AppxPackage
 Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobeLightroom* | Remove-AppxPackage
 Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage
-Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage
-Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage       
+Get-AppxPackage -allusers *AdobeCreativeCloudExpress* | Remove-AppxPackage      
 Get-AppxPackage -allusers *AmazonVideo.PrimeVideo* | Remove-AppxPackage
 Get-AppxPackage -allusers *AppUp.IntelGraphicsControlPanel* | Remove-AppxPackage
 Get-AppxPackage -allusers *AppUp.IntelGraphicsExperience* | Remove-AppxPackage
