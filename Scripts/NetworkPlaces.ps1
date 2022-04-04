@@ -7,3 +7,6 @@ New-PSDrive -Name "U" -Root "\\192.168.100.40\lvol01_folder\Users" -Persist -PSP
 #New-PSDrive -Name "J" -Root "\\192.168.100.40\lvol01_folder\Jobs" -Persist -PSProvider "FileSystem" -Credential admin
 #New-PSDrive -Name "M" -Root "\\192.168.100.40\lvol01_folder\midias" -Persist -PSProvider "FileSystem" -Credential admin
 #New-PSDrive -Name "S" -Root "\\192.168.100.40\lvol01_folder\Scanner" -Persist -PSProvider "FileSystem" -Credential admin
+
+#Só Raquel:
+#New-PSDrive -Name "D" -Root "\\192.168.100.10\Departamento" -Persist -PSProvider "FileSystem"
