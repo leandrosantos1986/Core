@@ -127,7 +127,7 @@ Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Window
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*Xbox*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*XboxOneSmartGlass*"} | remove-appxprovisionedpackage -online
 Get-appxprovisionedpackage -online | where-object {$_.packagename -like "*YourPhone*"} | remove-appxprovisionedpackage -online
-AdobeCreativeCloudExpress
+
 #For present users:
 #Get-AppxPackage -allusers *PACKAGENAMEHERE* | Remove-AppxPackage
 
