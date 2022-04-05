@@ -101,6 +101,7 @@ catch
 Stop-Transcript
 
 Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
-powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
+#powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
+& "$PSScriptRoot\InstallCore2.ps1"
 
 Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
