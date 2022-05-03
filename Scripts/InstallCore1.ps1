@@ -1,12 +1,4 @@
-﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
-powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
-
-Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft Update Health Tools"} | foreach-object -process {$_.Uninstall()}
-
-#Remove OneDrive
-Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft OneDrive"} | foreach-object -process {$_.Uninstall()}
-
-param([switch]$Elevated)
+﻿param([switch]$Elevated)
 function CheckAdmin {
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
 $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
@@ -26,8 +18,13 @@ Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -fil
 exit
 }
 
-#Write-Progress -Activity 'Enabling Permissions to execute PowerShell Scripts' -PercentComplete (100/10 * 1)
-#Set-ExecutionPolicy Unrestricted -Force
+Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
+powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
+
+Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft Update Health Tools"} | foreach-object -process {$_.Uninstall()}
+
+#Remove OneDrive
+Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft OneDrive"} | foreach-object -process {$_.Uninstall()}
 
 try 
 {
@@ -88,20 +85,16 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
 refreshenv
 }
 
-
-
 catch
 {
   #perform action or write specific error
   continue;
 }
 
-
-
 Stop-Transcript
 
 Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
 #powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
+cd C:\Temp\Core\Scripts\
 & "$PSScriptRoot\InstallCore2.ps1"
 
-Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"

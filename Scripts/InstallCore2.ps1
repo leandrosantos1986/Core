@@ -77,6 +77,7 @@ function Analyze( $p, $f) {
 
 
 Get-Content "C:\Temp\Core\InstallCoreErrors1.txt" | Out-GridView -PassThru -Title "LOG"
+Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
 
 Write-Progress -Activity 'Checking Windows Update' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\CheckAndInstallWU.ps1
