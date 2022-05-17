@@ -18,7 +18,6 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallOpenHardwareMonitor.ps1
 
 Write-Progress -Activity 'Installing TeamViewer' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\InstallTeamViewer.ps1
-& "C:\Program Files\7-Zip\7zFM.exe"
 
 Stop-Process -ProcessName explorer
 explorer shell:AppsFolder
