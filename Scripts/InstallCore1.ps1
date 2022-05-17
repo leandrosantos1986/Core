@@ -46,11 +46,11 @@ powershell.exe -File C:\Temp\Core\Scripts\PowerCFG.ps1
 Write-Progress -Activity 'Installing ATERA' -PercentComplete (100/10 * 2)
 powershell.exe -File C:\Temp\Core\Scripts\InstallATERA.ps1
 
-Write-Progress -Activity 'Installing AnyDesk' -PercentComplete (100/10 * 2)
-powershell.exe -File C:\Temp\Core\Scripts\InstallAnyDesk.ps1
-
 Write-Progress -Activity 'Installing AV ESET' -PercentComplete (100/10 * 3)
 powershell.exe -File C:\Temp\Core\Scripts\InstallAVESET.ps1
+
+Write-Progress -Activity 'Installing AnyDesk' -PercentComplete (100/10 * 2)
+powershell.exe -File C:\Temp\Core\Scripts\InstallAnyDesk.ps1
 
 Write-Progress -Activity 'ADD REG Values' -PercentComplete (100/10 * 4)
 powershell.exe -File C:\Temp\Core\Scripts\ADDREGValues.ps1
