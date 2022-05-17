@@ -1,10 +1,20 @@
-﻿param([switch]$Elevated)
-function CheckAdmin {
+﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
+powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
+
+param([switch]$Elevated)
+
+function Check-Admin {
+
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
+
 $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+
 }
-if ((CheckAdmin) -eq $false)  {
+
+if ((Check-Admin) -eq $false) {
+
 if ($elevated)
+
 {
 
 # could not elevate, quit
@@ -13,13 +23,13 @@ if ($elevated)
 
 else {
 
-Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
-}
-exit
+Start-Process powershell.exe -Verb RunAs -ArgumentList (‘-noprofile -noexit -file “{0}” -elevated’ -f ($myinvocation.MyCommand.Definition))
+
 }
 
-Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
-powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
+exit
+
+}
 
 Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft Update Health Tools"} | foreach-object -process {$_.Uninstall()}
 
