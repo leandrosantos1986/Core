@@ -1,9 +1,9 @@
 ﻿Start-Transcript -Path "C:\Temp\Core\InstallCoreErrors1.txt" -IncludeInvocationHeader
 powershell.exe -Command "& {Set-ExecutionPolicy -scope Currentuser -executionPolicy Unrestricted}"
 
-param([switch]$Elevated)
-
 function Check-Admin {
+
+param([switch]$Elevated)
 
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
 
@@ -36,10 +36,6 @@ Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft Update
 #Remove OneDrive
 Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq "Microsoft OneDrive"} | foreach-object -process {$_.Uninstall()}
 
-try 
-{
-#your script
-
 Write-Progress -Activity 'Now configuring your Power Plan' -PercentComplete (100/10 * 1)
 powershell.exe -File C:\Temp\Core\Scripts\PowerCFG.ps1
 
@@ -48,6 +44,9 @@ powershell.exe -File C:\Temp\Core\Scripts\InstallATERA.ps1
 
 Write-Progress -Activity 'Installing AV ESET' -PercentComplete (100/10 * 3)
 powershell.exe -File C:\Temp\Core\Scripts\InstallAVESET.ps1
+
+Write-Progress -Activity 'Installing Forticlient VPN' -PercentComplete (100/10 * 9)
+powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
 
 Write-Progress -Activity 'Installing AnyDesk' -PercentComplete (100/10 * 2)
 powershell.exe -File C:\Temp\Core\Scripts\InstallAnyDesk.ps1
@@ -82,24 +81,12 @@ powershell.exe -File C:\Temp\Core\Scripts\EnableNetworkDiscovery.ps1
 Write-Progress -Activity 'Enabling RDP' -PercentComplete (100/10 * 7)
 powershell.exe -File C:\Temp\Core\Scripts\EnableRDP.ps1
 
-Write-Progress -Activity 'Installing Microsoft 365' -PercentComplete (100/10 * 8)
-powershell.exe -File C:\Temp\Core\Scripts\InstallM365.ps1
-appwiz.cpl
-
 Write-Progress -Activity 'Installing Chocolatey' -PercentComplete (100/10 * 9)
 powershell.exe -File C:\Temp\Core\Scripts\InstallChocolatey.ps1
 
-Write-Progress -Activity 'Installing Forticlient VPN' -PercentComplete (100/10 * 9)
-powershell.exe -File C:\Temp\Core\Scripts\InstallVPN.ps1
-
-refreshenv
-}
-
-catch
-{
-  #perform action or write specific error
-  continue;
-}
+Write-Progress -Activity 'Installing Microsoft 365' -PercentComplete (100/10 * 8)
+powershell.exe -File C:\Temp\Core\Scripts\InstallM365.ps1
+appwiz.cpl
 
 Stop-Transcript
 
