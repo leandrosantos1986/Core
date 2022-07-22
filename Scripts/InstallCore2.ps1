@@ -24,6 +24,7 @@ explorer shell:AppsFolder
 appwiz.cpl
 devmgmt.msc
 systeminfo | Out-File -FilePath C:\Temp\Core\systeminfo.txt
+Get-ComputerInfo | Out-File -FilePath C:\Temp\Core\Get-ComputerInfo.txt
 & "C:\Program Files\7-Zip\7zFM.exe"
 
 Start-Process ms-windows-store:
@@ -77,6 +78,10 @@ function Analyze( $p, $f) {
 
 Get-Content "C:\Temp\Core\InstallCoreErrors1.txt" | Out-GridView -PassThru -Title "LOG"
 Get-Content "C:\Temp\Core\InstallCoreErrors2.txt" | Out-GridView -PassThru -Title "LOG"
+
+dism /online /enable-feature /featurename:netfx3 /all
+dism /online /enable-feature /featurename:WCF-HTTP-Activation /all
+dism /online /enable-feature /featurename:WCF-NonHTTP-Activation /all
 
 Write-Progress -Activity 'Checking Windows Update' -PercentComplete (100/10 * 10)
 powershell.exe -File C:\Temp\Core\Scripts\CheckAndInstallWU.ps1
