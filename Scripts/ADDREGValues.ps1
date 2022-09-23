@@ -6,7 +6,7 @@ Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\P
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallPaper -Type String -Value C:\Windows\web\wallpaper\Windows\img19.jpg
 
 #Disable First Run Customize Internet Explorer Wizard
-REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main" /v DisableFirstRunCustomize /t REG_DWORD /d 0 /f
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main\' -Name 'DisableFirstRunCustomize' -Value '0'
 
 #Disable Cortana
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0 /f
