@@ -92,6 +92,5 @@ Stop-Transcript
 
 Write-Progress -Activity 'Installing 2nd CoreApps Script, please wait...' -PercentComplete (100/10 * 9)
 #powershell.exe -File C:\Temp\Core\Scripts\InstallCore2.ps1
-cd C:\Temp\Core\Scripts\
+Set-Location -Path  "C:\Temp\Core\Scripts\"
 & "$PSScriptRoot.\\InstallCore2.ps1"
-

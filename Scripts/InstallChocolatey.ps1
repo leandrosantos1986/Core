@@ -11,4 +11,6 @@ if (Test-Path($ChocolateyProfile)) {
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 #Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+refreshenv
+Update-SessionEnvironment
